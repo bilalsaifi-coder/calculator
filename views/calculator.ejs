@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scientific Calculator Using Ejs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
+        }
+        .calculator {
+            background: #2c3e50;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+        #display {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-align: right;
+            padding: 10px;
+            box-sizing: border-box;
+            background: #ecf0f1;
+            border: none;
+            border-radius: 5px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+        button {
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #34495e;
+            color: white;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #3b4d63;
+        }
+        .operator {
+            background: #e67e22;
+        }
+        .scientific {
+            background: #3498db;
+        }
+        .equals {
+            background: #27ae60;
+        }
+        .clear {
+            background: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <form id="calculatorForm" method="POST" action="/calculate">
+            <input type="text" id="display" name="display" readonly value="<%= displayValue %>">
+            <div class="buttons">
+                <!-- Modified buttons to submit values -->
+                <button class="scientific" type="submit" name="operation" value="Math.sin(">sin</button>
+                <button class="scientific" type="submit" name="operation" value="Math.cos(">cos</button>
+                <button class="scientific" type="submit" name="operation" value="Math.tan(">tan</button>
+                <button class="scientific" type="submit" name="operation" value="Math.sqrt(">√</button>
+                <button class="operator" type="submit" name="operation" value="%">%</button>
+
+                <button class="clear" type="submit" name="operation" value="C">C</button>
+                <button type="submit" name="operation" value="(">(</button>
+                <button type="submit" name="operation" value=")">)</button>
+                <button class="operator" type="submit" name="operation" value="/">/</button>
+                <button class="operator" type="submit" name="operation" value="*">×</button>
+
+                <!-- Number buttons -->
+                <button type="submit" name="operation" value="7">7</button>
+                <button type="submit" name="operation" value="8">8</button>
+                <button type="submit" name="operation" value="9">9</button>
+                <button class="operator" type="submit" name="operation" value="-">-</button>
+                <button class="operator" type="submit" name="operation" value="+">+</button>
+
+                <button type="submit" name="operation" value="4">4</button>
+                <button type="submit" name="operation" value="5">5</button>
+                <button type="submit" name="operation" value="6">6</button>
+                <button class="scientific" type="submit" name="operation" value="Math.PI">π</button>
+                <button class="scientific" type="submit" name="operation" value="Math.E">e</button>
+
+                <button type="submit" name="operation" value="1">1</button>
+                <button type="submit" name="operation" value="2">2</button>
+                <button type="submit" name="operation" value="3">3</button>
+                <button class="scientific" type="submit" name="operation" value="**">^</button>
+                <button class="scientific" type="submit" name="operation" value="Math.log10(">log</button>
+
+                <button type="submit" name="operation" value="0">0</button>
+                <button type="submit" name="operation" value=".">.</button>
+                <button class="scientific" type="submit" name="operation" value="DEL">⌫</button>
+                <button class="equals" type="submit" name="operation" value="=" style="grid-column: span 2">=</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
